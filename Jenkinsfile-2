@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('information') {
       steps {
-        sh 'pack version'
-        sh 'pack report'
+        sh '$ENV.PACK  version'
+        sh '$ENV.PACK  report'
         sh 'env | sort'
       }
     }
