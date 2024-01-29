@@ -3,14 +3,14 @@ pipeline {
   stages {
     stage('information') {
       steps {
-        sh '$ENV.PACK  version'
-        sh '$ENV.PACK  report'
+        sh '${ENV.PACK}  version'
+        sh '${ENV.PACK}   report'
         sh 'env | sort'
       }
     }
     stage('build') {
       steps {
-        sh '$ENV.PACK build wishnu21/spring-boot-hello-world:${GIT_COMMIT:0:7} --path . --builder docker.io/buildpacks/builder:v1'
+        sh '${ENV.PACK} build wishnu21/spring-boot-hello-world:${GIT_COMMIT:0:7} --path . --builder docker.io/buildpacks/builder:v1'
       }
     }
   }
